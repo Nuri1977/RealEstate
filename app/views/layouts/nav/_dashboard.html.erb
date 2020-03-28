@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Property Finder</a>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <% if account_signed_in? %>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <span class="nav-link">User: <%= current_account.first_name%></span>
+    </li>
+  </ul>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <%= link_to "Log Out",  destroy_account_session_path, method: :delete, class:"nav-link" %>
+    </li>
+  </ul>
+  <% end %>
+</nav>

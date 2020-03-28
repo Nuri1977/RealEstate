@@ -11,16 +11,16 @@
 
   </head>
 
-  <body class="container">
-      <header>
+  <body>
+    <% if ["public","device"].include?(controller.controller_name) %>
         <%= render "layouts/nav/public" %>
-      </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
-
-    <%= render "layouts/footer" %>
+        <%= yield %>
+        <%= render "layouts/footer" %>
+    <% else %>
+      <%= render "layouts/nav/dashboard" %>
+        <%= yield %>
+        <%= render "layouts/footer" %>
+    <% end %>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
