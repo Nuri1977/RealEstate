@@ -1,42 +1,33 @@
 <%= form_with(model: property, local: true) do |form| %>
-  <% if property.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+  <%= render "layouts/validation", obj: @property %>
 
-      <ul>
-        <% property.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
+  <div class="form-group pt-4">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :room %>
-    <%= form.number_field :room %>
+    <%= form.number_field :room, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :bathroom %>
+  <div class="form-group">
+    <%= form.label :bathroom, class: "form-control" %>
     <%= form.number_field :bathroom %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Save Property", class: 'btn btn-success btn-lg btn-block' %>
   </div>
 <% end %>

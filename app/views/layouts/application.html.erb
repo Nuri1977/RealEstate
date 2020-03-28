@@ -12,16 +12,27 @@
   </head>
 
   <body>
-    <% if ["public","device"].include?(controller.controller_name) %>
+    
+    <% if ["public","device", "sessions", "registrations"].include?(controller.controller_name) %>
+      <header>
         <%= render "layouts/nav/public" %>
+        <%= controller.controller_name.inspect %> || <%= controller.action_name %>
         <%= yield %>
-        <%= render "layouts/footer" %>
+      </header>
     <% else %>
       <%= render "layouts/nav/dashboard" %>
-        <%= yield %>
-        <%= render "layouts/footer" %>
+      <div class="container-fluid mt-5">
+        <div class="row">        
+          <%= render "layouts/nav/sidebar" %>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+              <%= yield %>
+            </main>
+        </div>
+      </div>    
     <% end %>
 
+      <%= controller.controller_name %> || <%= controller.action_name %>
+      <%= render "layouts/footer" %>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
