@@ -23,9 +23,18 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :bathroom, class: "form-control" %>
-    <%= form.number_field :bathroom %>
+    <%= form.label :bathroom %>
+    <%= form.number_field :bathroom, class: "form-control" %>
   </div>
+
+  <div class="form-group">
+    <%= form.label :photo %>
+    <%= form.file_field :photo %>
+  </div>
+
+  <% if property.photo.present? %>
+    <%= image_tag property.photo.url, class: "mt-4" %>
+  <% end %><hr>
 
   <div class="form-group">
     <%= form.submit "Save Property", class: 'btn btn-success btn-lg btn-block' %>

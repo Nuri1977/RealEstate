@@ -44,4 +44,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'hirb', '~> 0.7.3'
-
+gem 'carrierwave', '~> 2.0', '>= 2.0.2'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+gem 'carrierwave-aws', '~> 1.4'
