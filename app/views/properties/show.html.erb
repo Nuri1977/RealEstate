@@ -25,10 +25,10 @@
   <%= @property.bathroom %>
 </p>
 
-<p>
   <strong>Photo:</strong>
-  <%= image_tag(@property.photo.url) %>
-</p>
+<div>
+  <%= image_tag @property.photo.url, width: '50%' %>
+</div>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>
