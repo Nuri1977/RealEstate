@@ -1,0 +1,7 @@
+<% @properties.each do |property| %>
+  <div class="col-4 mb-5">
+    <%= link_to (image_tag property.photo.url, width: '100%'), property_path(property)  %>
+    <h3><%= property.name %></h3>
+    <p><%= property.address %></p>
+  </div>
+<% end %>
