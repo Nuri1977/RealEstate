@@ -1,11 +1,11 @@
 <% @properties.each do |property| %>
   <div class="col-4 mb-5">
     <% if property.photo.present? %>
-      <%= link_to (image_tag property.photo.url, width: '100%'), property_path(property)  %>
+      <%= link_to (image_tag property.photo.url, width: '100%', class: "nuri"), property_path(property) %>
     <% else %>
-      <%= image_tag "no-image-found-360x250.jpg", width: "100%", alt: "profile image" %>
+      <%= image_tag "no-image-found-360x250.jpg", width: "100%", class: "nuri" %>
     <% end %>
-    <h3><%= property.name %></h3>
+    <h3 class="mt-1"><%= property.name %></h3>
     <p><%= property.address %></p>
   </div>
 <% end %>
