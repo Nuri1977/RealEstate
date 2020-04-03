@@ -27,7 +27,11 @@
 
   <strong>Photo:</strong>
 <div>
-  <%= image_tag @property.photo.url, width: '50%' %>
+  <% if @property.photo.present? %>
+    <%= image_tag @property.photo.url, width: '50%' %>
+  <% else %>
+    <%= image_tag "no-image-found-360x250.jpg", width: "50%", alt: "profile image" %>
+  <% end %>
 </div>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
