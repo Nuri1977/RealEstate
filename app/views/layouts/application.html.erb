@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PropertyFinder</title>
+    <title><%= link_to "Property finder", root_path %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,11 +14,13 @@
   <body>
     
     <% if ["public","device", "sessions", "registrations"].include?(controller.controller_name) %>
-      <header>
         <%= render "layouts/nav/public" %>
         <%= controller.controller_name.inspect %> || <%= controller.action_name %>
         <%= yield %>
-      </header>
+    <% elsif controller.controller_name == "properties" && controller.action_name == "show" %>
+        <%= render "layouts/nav/public" %>
+        <%= controller.controller_name.inspect %> || <%= controller.action_name %>
+        <%= yield %>
     <% else %>
       <%= render "layouts/nav/dashboard" %>
       <div class="container-fluid mt-5">

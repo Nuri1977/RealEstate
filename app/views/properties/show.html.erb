@@ -1,38 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-5">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @property.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @property.name %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= @property.address %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @property.price %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @property.price %>
+  </p>
 
-<p>
-  <strong>Room:</strong>
-  <%= @property.room %>
-</p>
+  <p>
+    <strong>Room:</strong>
+    <%= @property.room %>
+  </p>
 
-<p>
-  <strong>Bathroom:</strong>
-  <%= @property.bathroom %>
-</p>
+  <p>
+    <strong>Bathroom:</strong>
+    <%= @property.bathroom %>
+  </p>
 
-  <strong>Photo:</strong>
-<div>
-  <% if @property.photo.present? %>
-    <%= image_tag @property.photo.url, width: '50%' %>
-  <% else %>
-    <%= image_tag "no-image-found-360x250.jpg", width: "50%", alt: "profile image" %>
-  <% end %>
+    <strong>Photo:</strong>
+  <div>
+    <% if @property.photo.present? %>
+      <%= image_tag @property.photo.url, width: '50%' %>
+    <% else %>
+      <%= image_tag "no-image-found-360x250.jpg", width: "50%", alt: "profile image" %>
+    <% end %>
+  </div>
+
+  <%= link_to 'Edit', edit_property_path(@property) %> |
+  <%= link_to 'Back', properties_path %>
 </div>
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>

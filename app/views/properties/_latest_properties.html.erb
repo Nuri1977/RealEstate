@@ -3,9 +3,9 @@
     <% if property.photo.present? %>
       <%= link_to (image_tag property.photo.url, width: '100%', class: "nuri"), property_path(property) %>
     <% else %>
-      <%= image_tag "no-image-found-360x250.jpg", width: "100%", class: "nuri" %>
+      <%= link_to (image_tag "no-image-found-360x250.jpg", width: "100%", class: "nuri"), property_path(property) %>
     <% end %>
-    <h3 class="mt-1"><%= property.name %></h3>
+    <h3 class="mt-1"><%= link_to property.name, property_path(property) %></h3>
     <p><%= property.address %></p>
   </div>
 <% end %>
