@@ -11,6 +11,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
+    @agent=@property.account
   end
 
   # GET /properties/new
@@ -71,6 +72,6 @@ class PropertiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:name, :address, :price, :room, :bathroom, :photo )
+      params.require(:property).permit(:name, :address, :price, :room, :bathroom, :photo, :parking_space )
     end
 end

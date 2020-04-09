@@ -1,40 +1,58 @@
-<div class="container mt-5">
-  <p id="notice"><%= notice %></p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= @property.name %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= @property.address %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= @property.price %>
-  </p>
-
-  <p>
-    <strong>Room:</strong>
-    <%= @property.room %>
-  </p>
-
-  <p>
-    <strong>Bathroom:</strong>
-    <%= @property.bathroom %>
-  </p>
-
-    <strong>Photo:</strong>
-  <div>
-    <% if @property.photo.present? %>
-      <%= image_tag @property.photo.url, width: '50%' %>
-    <% else %>
-      <%= image_tag "no-image-found-360x250.jpg", width: "50%", alt: "profile image" %>
-    <% end %>
+<p id="notice"><%= notice %></p>
+<% if @property.photo.present? %>
+  <div class="property-main-photo" style="background-image:url('<%= @property.photo.url %>')">
+    <div class= "photo-overlay" >
+    </div>
   </div>
+<% else%> 
+  <div class="property-main-photo" style="background: image-url('no-image-found-360x250.jpg')">
+    <div class= "photo-overlay" >
+    </div>
+  </div>
+<% end %>
 
-  <%= link_to 'Edit', edit_property_path(@property) %> |
-  <%= link_to 'Back', properties_path %>
+<div class="container mt-4">
+  <div class="row">
+    <div class='col-md-8'>
+      <div class="row">
+        <div class="col-md-6 p-3">
+          <p class="mb-0"><%= @property.address %></p>
+          <h2><%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Sale" %></h2>
+        </div>
+        <div class="col-md-6 text-center bg-light p-3">
+          <div class="row mr-3">
+            <div class="col-4">
+              <p class="m-0">Rooms</p>
+              <span class="lead"><%= @property.room %></span>
+            </div>
+            <div class="col-4">
+              <p class="m-0">Bathroom</p>
+              <span class="lead"><%= @property.bathroom %></span>
+            </div>
+            <div class="col-4">
+              <p class="m-0">Bathroom</p>
+              <span class="lead"><%= @property.parking_space %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 p-3">
+          <p>
+            <strong>Name:</strong><%= @property.name %>
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class='col-md-4 p-3'>
+      <%= render "properties/agent_details" %>
+    </div>
+
+    </div class="col-md-12">
+      <%= link_to 'Edit', edit_property_path(@property) %> |
+      <%= link_to 'Back', properties_path %>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 <% @properties.each do |property| %>
-  <div class="col-4 mb-5">
+  <div class="col-md-4 mb-5">
     <% if property.photo.present? %>
       <%= link_to (image_tag property.photo.url, width: '100%', class: "nuri"), property_path(property) %>
     <% else %>
