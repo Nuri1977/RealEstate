@@ -5,6 +5,8 @@
 
 require("@rails/ujs").start()
 
+require("includes/properties");
+
 import "bootstrap"
 import "../stylesheets/application"
 
