@@ -36,12 +36,19 @@
           </div>
         </div>
       </div>
+      <div class="row border-top border-bottom mb-3 mt-3 pt-3 pb-3">
+        <div class="col-md-6">
+          <strong ><%= link_to "Est. Monthly Repayments of #{number_to_currency((@property.price/360), precision: 0)}","#", class: "text-success" %></strong>
+        </div>
+        <div class="col-md-6 text-right">
+          <strong><%= link_to "Can I afford this property?", "#", class: "text-success"  %> </strong>
+        </div>
+      </div>
       <div class="row">
-        <div class="col-md-12 p-3">
-          <p>
-            <strong>Name:</strong><%= @property.name %>
-          </p>
-
+         <div class="col-md-12">
+          <h2><%= @property.name %></h2>
+          <h5>Property Description</h5>
+          <%= simple_format @property.details %>
         </div>
       </div>
     </div>
@@ -49,7 +56,8 @@
     <div class='col-md-4 p-3'>
       <%= render "properties/agent_details" %>
     </div>
-
+  </div>
+  <div class="row p-4">
     </div class="col-md-12">
       <%= link_to 'Edit', edit_property_path(@property) %> |
       <%= link_to 'Back', properties_path %>
