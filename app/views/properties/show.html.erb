@@ -54,7 +54,7 @@
 
           <button class="btn btn-outline-info" id="toggleDetails">Show more</button>
 
-          <p class="mt-5">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+          <p class="mt-5">This property has been on Domain for <%= distance_of_time_in_words(@property.created_at, Time.now) %> days (sicnce <%= @property.created_at.strftime("%Y-%m-%d") %>). </p>
         </div>
       </div>
     </div>

@@ -1,10 +1,14 @@
-<div class="col-md-12">
-  <h3><%= @agent.full_name %></h3>
-</div>
-<div class="col-md-12">
-  <%= @agent.company %>
-</div>
-<div class="col-md-12">
-  <button class="btn btn-info">Contact <%= @agent.first_name %></button>
-  <button class="btn btn-success">Email <%= @agent.first_name %></button>
-</div>
+<div class="row text-center">
+  <div class="col-md-12">
+    <%= image_tag @agent.image.url, class: "rounded-circle",width: '20%' %>
+  </div>
+  <div class="col-md-12">
+    <h3><%= @agent.full_name %></h3>
+  </div>
+  <div class="col-md-12">
+    <%= @agent.company %>
+  </div>
+  <div class="col-md-12">
+    <button class="btn btn-info">Contact <%= @agent.first_name %></button>
+    <button class="btn btn-success">Email <%= @agent.first_name %></button>
+  </div>
