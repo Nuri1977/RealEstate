@@ -5,10 +5,11 @@
 
 require("@rails/ujs").start()
 
-require("includes/properties");
+require("bootstrap")
+require("@fortawesome/fontawesome-free")
 
-import "bootstrap"
-import "../stylesheets/application"
+
+require("includes/properties");
 
 document.addEventListener("turbolinks:load",() => {
   $('[data-toggle="tooltip"]').tooltip()
