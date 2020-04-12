@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= link_to "Property finder", root_path %></title>
+    <title><%= controller.controller_name %> | <%= controller.action_name %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_url "favicon/apple-touch-icon.png" %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_url "favicon/favicon-32x32.png" %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_url "favicon/favicon-16x16.png" %>">
+    <link rel="manifest" href="<%= asset_url "favicon/site.webmanifest" %>">
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
@@ -34,7 +39,6 @@
       </div>    
     <% end %>
 
-      <%= controller.controller_name %> || <%= controller.action_name %>
       <%= render "layouts/footer" %>
 
     <!--
