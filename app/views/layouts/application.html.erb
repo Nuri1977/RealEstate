@@ -22,13 +22,17 @@
     <% if ["public","device", "sessions", "registrations"].include?(controller.controller_name) %>
         <%= render "layouts/nav/public" %>
         <%= controller.controller_name.inspect %> || <%= controller.action_name %>
+        <%= render 'layouts/mesagges'  %>
         <%= yield %>
     <% elsif controller.controller_name == "properties" && controller.action_name == "show" %>
         <%= render "layouts/nav/public" %>
+        <%= render 'layouts/mesagges'  %>
         <%= controller.controller_name.inspect %> || <%= controller.action_name %>
+        <%= render 'layouts/mesagges'  %>
         <%= yield %>
     <% else %>
       <%= render "layouts/nav/dashboard" %>
+      <%= render 'layouts/mesagges'  %>
       <div class="container-fluid mt-5">
         <div class="row">        
           <%= render "layouts/nav/sidebar" %>
