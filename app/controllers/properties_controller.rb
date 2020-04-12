@@ -6,6 +6,7 @@ class PropertiesController < ApplicationController
   # GET /properties.json
   def index
     @properties = Property.all
+    @properties_by_account = Property.where(account_id: current_account)
   end
 
   # GET /properties/1
