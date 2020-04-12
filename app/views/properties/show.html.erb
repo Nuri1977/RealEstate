@@ -60,10 +60,11 @@
       <%= render "properties/agent_details" %>
     </div>
   </div>
-  <div class="row p-4">
-    </div class="col-md-12">
-      <%= link_to 'Edit', edit_property_path(@property) %> |
-      <%= link_to 'Back', properties_path %>
-    </div>
+</div>
+
+<div class="container mt-4">
+  <h3 class="p-2">Other properties from this agent<h3>
+  <div class="row">
+      <%= render "properties/list", properties: @agent_properties %>
   </div>
 </div>
