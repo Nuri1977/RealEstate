@@ -1,6 +1,10 @@
 <div class="row text-center">
   <div class="col-md-12">
-    <%= image_tag @agent.image.url, class: "rounded-circle",width: '20%' %>
+    <% if @agent.image.present? %>
+      <%= image_tag @agent.image.url, class: "rounded-circle", width: '20%' %>
+    <% else %>
+      <%= image_tag "no-image-found-360x250.jpg", class:"rounded-circle", width: '20%' %>
+    <% end %>
   </div>
   <div class="col-md-12">
     <h3><%= @agent.full_name %></h3>
