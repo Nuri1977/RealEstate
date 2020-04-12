@@ -5,8 +5,8 @@
 
 require("@rails/ujs").start()
 
-require("bootstrap")
-require("@fortawesome/fontawesome-free")
+require("bootstrap");
+
 
 
 require("includes/properties");
