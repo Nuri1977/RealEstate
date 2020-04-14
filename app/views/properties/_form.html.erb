@@ -20,16 +20,22 @@
             <%= form.select :for_sale, options_for_select({ "Yes" => true, "No" => false }, @property.for_sale), class: "form-control" %>
           </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-3">
           <div class="form-group">
             <%= form.label :price %>
             <%= form.number_field :price, class: "form-control" %>
           </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-3">
           <div class="form-group">
             <%= form.label :rent_price %>
             <%= form.number_field :rent_price, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= form.label :available_date %>
+            <%= form.date_field :avaliable_date, class: "form-control" %>
           </div>
         </div>
       </div>

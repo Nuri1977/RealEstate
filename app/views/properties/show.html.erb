@@ -42,7 +42,7 @@
           <% if @property.for_sale? %>
             <strong ><%= link_to "Est. Monthly Repayments of #{number_to_currency((@property.price/360), precision: 0)}","#", class: "text-success" %></strong>
           <% else %>
-
+            <strong>Avaliable from <%= @property.avaliable_date.strftime("%d/%b/%Y") %></strong>
           <% end %>
         </div>
         <div class="col-md-6 text-right">
