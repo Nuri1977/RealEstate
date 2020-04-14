@@ -1,52 +1,76 @@
 <%= form_with(model: property, local: true) do |form| %>
   <%= render "layouts/validation", obj: @property %>
 
+  <div class="row pt-3">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
 
-  <div class="form-group pt-4">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control" %>
+      <div class="form-group">
+        <%= form.label :address %>
+        <%= form.text_field :address, class: "form-control" %>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2">
+          <div class="form-group">
+            <%= form.label :for_sale %>
+            <%= form.select :for_sale, options_for_select({ "Yes" => true, "No" => false }, @property.for_sale), class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <%= form.label :price %>
+            <%= form.number_field :price, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <%= form.label :rent_price %>
+            <%= form.number_field :rent_price, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :room %>
+        <%= form.number_field :room, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :bathroom %>
+        <%= form.number_field :bathroom, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :parking_space %>
+        <%= form.number_field :parking_space, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="form-group">
+        <%= form.label :details %>
+        <%= form.text_area :details, class: "form-control", rows: 10 %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :photo %>
+        <%= form.file_field :photo %>
+      </div>
+
+      <% if property.photo.present? %>
+        <%= image_tag property.photo.url, class: "mt-4", width: '50%' %>
+      <% end %><hr>
+
+      <div class="form-group">
+        <%= form.submit "Save Property", class: 'btn btn-success btn-lg btn-block' %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= form.label :address %>
-    <%= form.text_field :address, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :price %>
-    <%= form.number_field :price, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :room %>
-    <%= form.number_field :room, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :bathroom %>
-    <%= form.number_field :bathroom, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :parking_space %>
-    <%= form.number_field :parking_space, class: "form-control" %>
-  </div>
-
-    <div class="form-group">
-    <%= form.label :details %>
-    <%= form.text_area :details, class: "form-control", rows: 10 %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :photo %>
-    <%= form.file_field :photo %>
-  </div>
-
-  <% if property.photo.present? %>
-    <%= image_tag property.photo.url, class: "mt-4", width: '50%' %>
-  <% end %><hr>
-
-  <div class="form-group">
-    <%= form.submit "Save Property", class: 'btn btn-success btn-lg btn-block' %>
-  </div>
 <% end %>

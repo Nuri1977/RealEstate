@@ -17,7 +17,11 @@
       <div class="row">
         <div class="col-md-6 p-3">
           <p class="mb-0"><%= @property.address %></p>
-          <h2><%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Sale" %></h2>
+          <% if @property.for_sale? %>
+            <h2><%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Sale" %></h2>
+          <% else %>
+            <h2>For rent <%= @property.rent_price > 0 ? number_to_currency(@property.rent_price, precision: 0) : "" %></h2>
+          <% end %>
         </div>
         <div class="col-md-6 text-center bg-light p-3">
           <div class="row mr-3">
@@ -35,7 +39,11 @@
       </div>
       <div class="row border-top border-bottom mb-3 mt-3 pt-3 pb-3">
         <div class="col-md-6">
-          <strong ><%= link_to "Est. Monthly Repayments of #{number_to_currency((@property.price/360), precision: 0)}","#", class: "text-success" %></strong>
+          <% if @property.for_sale? %>
+            <strong ><%= link_to "Est. Monthly Repayments of #{number_to_currency((@property.price/360), precision: 0)}","#", class: "text-success" %></strong>
+          <% else %>
+
+          <% end %>
         </div>
         <div class="col-md-6 text-right">
           <strong><%= link_to "Can I afford this property?", "#", class: "text-success"  %> </strong>
