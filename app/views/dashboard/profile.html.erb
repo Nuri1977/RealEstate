@@ -1,2 +1,46 @@
-<h1>My profile </h1>
-<h1><%= @account.full_name %></h1>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class='col-md-8'>
+      <%= render "properties/agent_details", agent: @account %>
+      <div class="row">
+         <div class="col-md-12 pt-3">
+          <h2>About <%= @account.full_name %></h2>
+          <div id="prop-details" class="mb-2">
+            <%= simple_format @account.details %>
+          </div>
+          <button class="btn btn-outline-info" id="toggleDetails">Show more</button>
+          <h5 class="mt-5">This agent has been on Domain for <%= distance_of_time_in_words(@account.created_at, Time.now) %> days (sicnce <%= @account.created_at.strftime("%Y-%m-%d") %>). </h5>
+        </div>
+      </div>
+    </div>
+
+    <div class='col-md-4 p-3'>
+      <div class="row mr-3 text-center border">
+        <div class="col-12">
+          <h2> Agents statistics </h2>
+        </div>
+        <div class="col-12">
+          <h5><%= @properties_sold.count %>  properties sold</h5>             
+        </div>
+        <div class="col-12">
+          <h5><%= @properties_leased.count %>  properties leased</h5>
+        </div>
+        <div class="col-12">
+          <h5><%= @properties_for_sale.count %>  properties for sale</h5>
+        </div>
+        <div class="col-12">
+          <h5><%= @properties_for_rent.count %>  properties for rent</h5>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <section id="latest-properties">
+    <h3 class="pt-4">Properties for sale <h3>
+    <div class="row">
+        <%= render "properties/list", properties: @properties_for_sale %>
+    </div>
+  </section>
+</div>

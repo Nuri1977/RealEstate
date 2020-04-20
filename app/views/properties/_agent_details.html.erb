@@ -1,18 +1,19 @@
 <div class="row text-center">
   <div class="col-md-12">
-    <% if @agent.image.present? %>
-      <%= image_tag @agent.image.url, class: "rounded-circle", width: '20%' %>
+    <% if agent.image.present? %>
+      <%= image_tag agent.image.url, class: "rounded-circle", width: '50%' %>
     <% else %>
       <%= image_tag "no-image-found-360x250.jpg", class:"rounded-circle", width: '20%' %>
     <% end %>
   </div>
   <div class="col-md-12">
-    <h3><%= link_to @agent.full_name, profile_path(@agent.id) %></h3>
+    <h3><%= link_to agent.full_name, profile_path(agent.id) %></h3>
   </div>
   <div class="col-md-12">
-    <span><%= @agent.company %></span>
+    <span><%= agent.company %></span>
   </div>
   <div class="col-md-12">
-    <button class="btn btn-info btn-block" id="show-tel" data-telephone="<%= @agent.telephone %>"><i class="fa fa-phone"></i> <span>Call</span></button>
+    <button class="btn btn-info btn-block" id="show-tel" data-telephone="<%= agent.telephone %>"><i class="fa fa-phone"></i> <span>Call</span></button>
     <button class="btn btn-success btn-block"><i class="fa fa-envelope"> Email</i> </button>
   </div>
+</div>
