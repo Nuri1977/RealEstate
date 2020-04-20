@@ -25,7 +25,7 @@
         <%= controller.controller_name.inspect %> || <%= controller.action_name %>
         <%= render 'layouts/mesagges'  %>
         <%= yield %>
-    <% elsif controller.controller_name == "properties" && controller.action_name == "show" %>
+    <% elsif controller.controller_name == "properties" && controller.action_name == "show"  %>
         <%= render "layouts/nav/public" %>
         <%= render 'layouts/mesagges'  %>
         <%= controller.controller_name.inspect %> || <%= controller.action_name %>

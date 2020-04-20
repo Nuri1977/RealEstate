@@ -1,0 +1,18 @@
+<h2>Accounts</h2>
+
+<% @accounts.each do |account| %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= account.full_name %>
+    </div>
+    <div class="col-md-3">
+      <%= account.email%>
+    </div>
+    <div class="col-md-3">
+      <%= account.created_at.strftime("%d %m %Y") %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to "View Profile", profile_path(account.id) %>
+    </div>
+  </div>
+<% end %>
