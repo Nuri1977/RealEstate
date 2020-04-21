@@ -1,22 +1,13 @@
 
-<div class="container mt-4">
+<div class="container mt-4 ">
   <div class="row">
-    <div class='col-md-8'>
+    <div class='col-md-8 border'>
       <%= render "properties/agent_details", agent: @account %>
-      <div class="row">
-         <div class="col-md-12 pt-3">
-          <h2>About <%= @account.full_name %></h2>
-          <div id="prop-details" class="mb-2">
-            <%= simple_format @account.details %>
-          </div>
-          <button class="btn btn-outline-info" id="toggleDetails">Show more</button>
-          <h5 class="mt-5">This agent has been on Domain for <%= distance_of_time_in_words(@account.created_at, Time.now) %> days (sicnce <%= @account.created_at.strftime("%Y-%m-%d") %>). </h5>
-        </div>
-      </div>
+       <h5 class="mt-3 text-muted">This agent has been on Domain for <%= distance_of_time_in_words(@account.created_at, Time.now) %> days (sicnce <%= @account.created_at.strftime("%Y-%m-%d") %>). </h5>
     </div>
 
-    <div class='col-md-4 p-3'>
-      <div class="row mr-3 text-center border">
+    <div class='col-md-4'>
+      <div class="row text-center border">
         <div class="col-12">
           <h2> Agents statistics </h2>
         </div>
@@ -35,10 +26,18 @@
       </div>
     </div>
     
+    <div class="col-md-12 pt-5">
+        <h2>About <%= @account.full_name %></h2>
+        <div id="prop-details" class="mb-2">
+          <%= simple_format @account.details %>
+        </div>
+        <button class="btn btn-outline-info" id="toggleDetails">Show more</button>
+        
+      </div>
   </div>
 
   <section id="latest-properties">
-    <h3 class="pt-4">Properties for sale <h3>
+    <h3 class="pt-5">Properties for sale <h3>
     <div class="row">
         <%= render "properties/list", properties: @properties_for_sale %>
     </div>
