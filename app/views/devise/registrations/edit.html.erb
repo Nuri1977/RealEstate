@@ -30,7 +30,7 @@
         </div>
       </div>
 
-    <div class="col-md-6">
+      <div class="col-md-6">
       <div class="form-group">
         <%= f.label :details %>
         <%= f.text_area :details, autocomplete: "description", class: "form-control", rows: 10 %>
@@ -44,8 +44,15 @@
 
     <div class="col-md-6">
       <div class="form-group">
+        <%= f.label :cover_image %>
+        <%= f.file_field :cover_image, class: "form-control"  %>
+        <%= f.hidden_field :cover_image_cache %>
+      </div>
+
+      <div class="form-group">
         <%= f.label :image %>
-        <%= f.file_field :image, autocomplete: "image"  %>
+        <%= f.file_field :image, class: "form-control"  %>
+        <%= f.hidden_field :image_cache %>
       </div>
 
       <% if @account.image.present? %>

@@ -1,25 +1,86 @@
-<section class="form-auth text-center pt-5 mt-5">
+<section class="container text-center pt-5 mt-5">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <!-- <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
     <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <%= f.text_field :first_name, autofocus: true, class: "form-control mb-1", placeholder: "First Name" %>
+    <div class="row">
+      <div class="col-md-6">
 
-    <%= f.text_field :last_name, class: "form-control mb-1", placeholder: "Second Name" %>
+        <div class="form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "First name", class: "form-control" %>
+        </div>
 
-    <%= f.text_field :company, class: "form-control mb-1", placeholder: "Company" %>
+        <div class="form-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, autocomplete: "Last Name", class: "form-control" %>
+        </div>
 
-    <%= f.email_field :email, autocomplete: "email", class: "form-control mb-1", placeholder: "Email address" %>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+        </div>
 
-    <%= f.text_field :telephone, class: "form-control mb-1", placeholder: "telephone" %>
+        <div class="form-group">
+        <%= f.label :telephone %>
+          <%= f.text_field :telephone, autocomplete: "telephone", class: "form-control" %>
+        </div>
+      </div>
 
-    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
-  
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: " Confirm Password" %>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :details %>
+          <%= f.text_area :details, autocomplete: "description", class: "form-control", rows: 10 %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :company %>
+          <%= f.text_field :company, autocomplete: "company", class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :cover_image %>
+        <%= f.file_field :cover_image, class: "form-control"  %>
+        <%= f.hidden_field :cover_image_cache %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :image %>
+        <%= f.file_field :image, class: "form-control"  %>
+        <%= f.hidden_field :image_cache %>
+      </div>
+
+        <% if @account.image.present? %>
+          <%= image_tag @account.image.url %>
+        <% end %>
+      </div>
+
+      <div class="col-md-6">
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: " Confirm Password"  %>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= f.submit "Submit", class:"btn btn-lg btn-primary btn-block"   %>
+        </div>
+      </div>
   
     </div>
-    <%= f.submit "Sign up", class:"btn btn-lg btn-primary btn-block" %><
     <%= render "devise/shared/links" %>
   <% end%>
 </section>

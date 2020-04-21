@@ -1,9 +1,20 @@
+<% if @account.cover_image.present? %>
+  <div class="property-main-photo" style="background-image:url('<%= @account.cover_image.url %>')">
+    <div class= "photo-overlay" >
+    </div>
+  </div>
+<% else%> 
+  <div class="property-main-photo" style="background: image-url('no-image-found-360x250.jpg')">
+    <div class= "photo-overlay" >
+    </div>
+  </div>
+<% end %>
 
 <div class="container mt-4 ">
   <div class="row">
     <div class='col-md-8 border'>
       <%= render "properties/agent_details", agent: @account %>
-       <h5 class="mt-3 text-muted">This agent has been on Domain for <%= distance_of_time_in_words(@account.created_at, Time.now) %> days (sicnce <%= @account.created_at.strftime("%Y-%m-%d") %>). </h5>
+       <h5 class="mt-3 text-muted">Registered in Domain <%= distance_of_time_in_words(@account.created_at, Time.now) %> ago (since <%= @account.created_at.strftime("%Y-%m-%d") %>). </h5>
     </div>
 
     <div class='col-md-4'>
