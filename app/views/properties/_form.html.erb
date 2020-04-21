@@ -13,25 +13,33 @@
         <%= form.text_field :address, class: "form-control" %>
       </div>
 
-      <div class="form-group">
-        <%= form.label :status %>
-        <%= form.text_field :status, class: "form-control" %>
-      </div>
-
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="form-group">
             <%= form.label :for_sale %>
             <%= form.select :for_sale, options_for_select({ "Yes" => true, "No" => false }, @property.for_sale), class: "form-control" %>
           </div>
         </div>
+
         <div class="col-md-3">
+          <div class="form-group">
+            <% opts = @property.for_sale? ? { "Available" => "available", "Sold" => "sold"} : { "Available" => "available", "Leased" => "leased"} %>
+            <%= form.label :status %>
+            <%= form.select :status, options_for_select(opts, @property.status), class: "form-control" %>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4">
           <div class="form-group">
             <%= form.label :price %>
             <%= form.number_field :price, class: "form-control" %>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="form-group">
             <%= form.label :rent_price %>
             <%= form.number_field :rent_price, class: "form-control" %>
